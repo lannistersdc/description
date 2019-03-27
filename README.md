@@ -19,9 +19,11 @@ OpenTable App
 
 ## Usage
 
-> Npm Install
-> Npm Run Build
-> Npm Start
+```sh
+Npm Install 
+Npm Run Build
+Npm Start
+```
 
 ## Requirements
 
