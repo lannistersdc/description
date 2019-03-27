@@ -1,6 +1,6 @@
-# OpenTable-Service
+# Description-Service
 
-Service Repo
+OpenTable App
 
 > Project description
 
