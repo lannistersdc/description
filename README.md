@@ -7,8 +7,8 @@ OpenTable App
 ## Related Projects
 
   - https://github.com/hrla28-open-table-app/navbar
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/hrla28-open-table-app/OpenTable-Reviews
+  - https://github.com/hrla28-open-table-app/reservation
 
 ## Table of Contents
 
