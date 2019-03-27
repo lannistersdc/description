@@ -2,7 +2,7 @@
 
 OpenTable App
 
-> Project description
+> OpenTable app is a replica of OpenTable.com using React, Express, and MongoDB. 
 
 ## Related Projects
 
@@ -19,7 +19,9 @@ OpenTable App
 
 ## Usage
 
-> Some usage instructions
+> Npm Install
+> Npm Run Build
+> Npm Start
 
 ## Requirements
 
