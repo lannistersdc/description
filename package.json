@@ -1,17 +1,48 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "open-table-clone",
+  "version": "1.0.0",
+  "description": "Open Table Clone",
+  "author": "Uttej Gujral",
+  "license": "MIT",
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrla28-open-table-app/description.git"
+  },
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "nodemon server/index.js",
+    "build": "webpack -w",
+    "seed": "node database/seed.js"
   },
   "dependencies": {
+    "acorn": "^6.1.1",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "css-loader": "^2.1.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack-combine-loaders": "^2.0.4"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   }
 }
