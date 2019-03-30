@@ -2,8 +2,8 @@ const Opentable = require('../database/index.js');
 
 const controller = {
   get: (req, res) => {
-    Opentable.find({})
-      .sort({ restaurantId: 1 })
+    const { restaurantId } = req.params;
+    Opentable.find({ restaurantId })
       .then((docs) => {
         res.status(200).send(docs);
       })
