@@ -6,35 +6,37 @@
 import React from 'react';
 import axios from 'axios';
 
+import HeroImage from './HeroImage';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurants: [],
       restaurant: [],
     };
     this.getOneRestaurant = this.getOneRestaurant.bind(this);
   }
 
   componentDidMount() {
-    this.getOneRestaurants();
+    this.getOneRestaurant(1);
   }
 
-  getOneRestaurant() {
-    let { id } = req.params;
+  getOneRestaurant(restaurantId) {
     axios
-      .get('/api/restaurants/:id')
+      .get(`/api/restaurants/${restaurantId}`)
       .then((response) => {
         this.setState({
           restaurant: response.data,
         });
-      })
+      }, () => console.log(this.state))
       .catch(err => console.error(err));
   }
 
   render() {
     return (
-      <div className="main-app" />
+      <div className="main-app">
+        <HeroImage />
+      </div>
     );
   }
 }
