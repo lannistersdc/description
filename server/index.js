@@ -15,4 +15,5 @@ server.use(express.static(path.join(__dirname, '../public')));
 
 server.use('/api', router);
 
-server.listen(port);
+// eslint-disable-next-line no-console
+server.listen(port, () => console.log(`Connected on port ${port}`));
