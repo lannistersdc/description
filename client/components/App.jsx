@@ -28,7 +28,7 @@ class App extends React.Component {
         this.setState({
           restaurant: response.data,
         });
-      }, () => console.log(this.state))
+      })
       .catch(err => console.error(err));
   }
 
