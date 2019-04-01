@@ -14,7 +14,7 @@ class HeroImage extends React.Component {
     return (
       <div className="hero-image">
         <div className="first-image">
-          <img src="https://resizer.otstatic.com/v2/photos/wide-huge/25160669.jpg" alt="" />
+          <img src="#" alt="" />
         </div>
         <div className="favorite-restaurant">
           <button className="fav-btn" type="button">
