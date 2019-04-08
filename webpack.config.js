@@ -1,47 +1,57 @@
 const path = require('path');
-const combinedLoaders = require('webpack-combine-loaders');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const SRC_DIR = path.join(__dirname, '/client');
-const DIST_DIR = path.join(__dirname, '/public');
-
+const SRC_DIR = path.join(__dirname, './client');
+const DIST_DIR = path.join(__dirname, './public');
 module.exports = {
   mode: 'development',
   entry: `${SRC_DIR}/index.jsx`,
-  output: {
-    filename: 'bundle.js',
-    path: DIST_DIR,
-  },
   module: {
-    rules: [
-      {
+    rules: [{
+      test: /\.scss$/,
+      use: [
+        process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+        'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        'sass-loader',
+      ],
+    },
+    {
+      test: /\.jsx?/,
+      include: SRC_DIR,
+      exclude: /node_modules/,
+      use: [{
         loader: 'babel-loader',
-        test: /\.jsx?/,
-        exclude: /node_modules/,
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
         },
+      }],
+      resolve: {
+        extensions: ['.js', '.jsx'],
       },
-      {
-        test: /\.css$/,
-        loader: combinedLoaders([
-          {
-            loader: 'style-loader',
-          }, {
-            loader: 'css-loader',
-            query: {
-              modules: true,
-              localIdentName: '[name]__[loader]__[hash:base64:5]',
-            },
+    },
+    {
+      test: /\.svg$/,
+      use: [
+        'svg-react-loader',
+        {
+          loader: 'svgo-loader',
+          options: {
+            plugins: [
+              { cleanupAttrs: true },
+            ],
           },
-        ]),
-      },
-      {
-        test: /\.(s*)css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-    ],
+        },
+      ],
+    }],
   },
-  resolve: {
-    extensions: ['.js', '.jsx', 'scss'],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+  ],
+  output: {
+    filename: 'bundle.js',
+    path: DIST_DIR,
   },
 };

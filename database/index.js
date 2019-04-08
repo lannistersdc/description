@@ -16,9 +16,9 @@ const restaurantSchema = mongoose.Schema({
   restaurantPrice: { type: String },
   restaurantCuisine: { type: String },
   restaurantDescription: { type: String },
-  restaurantPhotos: { type: String },
+  restaurantTags: { type: [String] },
 });
 
-const Opentable = mongoose.model('Opentable', restaurantSchema);
+const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-module.exports = Opentable;
+module.exports = Restaurant;
