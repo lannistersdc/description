@@ -8,7 +8,7 @@ const morgan = require('morgan');
 const router = require('./router.js');
 
 const server = express();
-const port = 3003;
+const port = process.env.PORT || 3003;
 
 server.use(morgan('dev'));
 server.use(bodyParser.json());
