@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styles from '../scss/main.scss';
 
 const TopTags = ({ restaurantTags }) => {
-  const tags = restaurantTags.map((restTag, index) => (
-    <div className={styles.tags} key={restTag[index]}>{restTag}</div>
+  const tags = restaurantTags.map(restTag => (
+    <div className={styles.tags} key={Math.floor(Math.random() * 99999)}>{restTag}</div>
   ));
   return (
     <div className={styles.topTags}>

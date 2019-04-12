@@ -15,12 +15,29 @@ const Stars = ({ stars }) => {
       </svg>,
     );
   }
+
   if (stars - Math.floor(stars) > 0.25 && stars - Math.floor(stars) < 0.75) {
     allStars.push(
       <svg key={allStars.length}>
+        <path className={styles.grey} d={icons.star.full} />
         <path className={styles.red} d={icons.star.half} />
       </svg>,
     );
+    for (let i = 0; i < 5 - Math.floor(stars) - 1; i += 1) {
+      allStars.push(
+        <svg key={allStars.length}>
+          <path className={styles.grey} d={icons.star.full} />
+        </svg>,
+      );
+    }
+  } else {
+    for (let i = 0; i < 5 - Math.floor(stars); i += 1) {
+      allStars.push(
+        <svg key={allStars.length}>
+          <path className={styles.grey} d={icons.star.full} />
+        </svg>,
+      );
+    }
   }
   return (
     <div className={styles.stars}>

@@ -17,6 +17,7 @@ const restaurantSchema = mongoose.Schema({
   restaurantCuisine: { type: String },
   restaurantDescription: { type: String },
   restaurantTags: { type: [String] },
+  restaurantPhotos: { type: [String] },
 });
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);

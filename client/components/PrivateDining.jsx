@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import styles from '../scss/main.scss';
 
@@ -14,8 +15,9 @@ const PrivateDining = () => (
       Private Dining
       <p>Book your next event with us</p>
     </h3>
-
-    <div className={styles.privateDiningButton}>View Details</div>
+    <div className={styles.privateDiningButton}>
+      View Details
+    </div>
   </div>
 );
 

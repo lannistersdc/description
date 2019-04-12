@@ -4,7 +4,6 @@ $opentable-red: #da3743;
 $star-grey: #e1e1e1;
 $icon: #2D333F;
 
-
 body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 16px;
@@ -20,9 +19,14 @@ h1 {
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid $grey;
 }
+
+a { 
+  color: inherit;
+  text-decoration: none;
+} 
 
 svg {
   display: inline-block;
@@ -40,16 +44,16 @@ svg {
   }
 }
 
-
 .heroImage {
   position: relative;
   display: block;
   margin: 0;
   padding: 0;
   .backgroundImage{
+    width: 100%;
     height: 230px;
+    overflow: hidden;
     display: block;
-    background: #2D333F;
     background-size: cover;
     background-position: center;
     margin: 0;
@@ -57,11 +61,15 @@ svg {
     cursor: pointer;
   }
   .bookmarking {
+    display: flex;
+    justify-content: flex-end;
     position: absolute;
     top: 2rem;
     right: 2rem;
+    width: 15rem;
     margin: 0;
     padding: 0;
+    padding: calc(.75rem - 1px) calc(1rem - 1px);
     .favorited {
       display: flex;
       align-items: center;
@@ -238,6 +246,310 @@ svg {
     &:hover {
       border: 2px solid $opentable-red;
       cursor: pointer;
+    }
+  }
+}
+
+.photos {
+  .picHeading {
+    display: flex;
+    float: none;
+    position: static;
+    height: 49px;
+    width: 608px;
+    font-size: 24px;
+    font-weight: 200;
+    font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #d8d9db;
+  }
+  .grid {
+    outline: none;
+    display: grid;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    width: 100%;
+    padding-top: 20px;
+    grid-template-columns: 23% 47% 15% 15%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1.5px;
+    grid-column-gap: 1.5px;
+    cursor: pointer;
+  }
+  .gridIndex0 {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 3;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .gridIndex1 {
+    grid-column-start: 1;
+    grid-column-end: span 1;
+    grid-row-start: 4;
+    grid-row-end: span 3;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .gridIndex2 {
+    grid-column-start: 2;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 6;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .gridIndex3 {
+    grid-column-start: 3;
+    grid-column-end: span 1;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .gridIndex4 {
+    grid-column-start: 3;
+    grid-column-end: span 1;
+    grid-row-start: 3;
+    grid-row-end: span 2;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .gridIndex5 {
+    grid-column-start: 3;
+    grid-column-end: span 1;
+    grid-row-start: 5;
+    grid-row-end: span 2;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .gridIndex6 {
+    grid-column-start: 4;
+    grid-column-end: 5 start;
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .gridIndex7 {
+    grid-column-start: 4;
+    grid-column-end: 5 start;
+    grid-row-start: 3;
+    grid-row-end: span 2;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .gridIndex8 {
+    grid-column-start: 4;
+    grid-column-end: span 1;
+    grid-row-start: 5;
+    grid-row-end: span 2;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+  .ninthPic {
+    text-align: center;
+    color: white;
+    grid-column-start: 4;
+    grid-column-end: span 1;
+    grid-row-start: 5;
+    grid-row-end: span 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    vertical-align: middle;
+    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    background: 0 0;
+    border: 0;
+    text-decoration: none;
+  }
+}
+
+.carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.9);
+  z-index: 1001;
+  white-space: nowrap;
+  background-size: cover;
+  background-position: center;
+  .allCarouselPhotos {
+    position: fixed;
+    top: 10%;
+    left: 33%;
+    width: 525px;
+    white-space: nowrap;
+    background-size: cover;
+    background-position: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
+  .exit {
+    fill: #91949a;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .left {
+    fill: #91949a;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 310px;
+    left: 430px;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .right {
+    fill: #91949a;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 310px;
+    right: 390px;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .notReported {
+    fill: #91949a;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 608px;
+    right: 428px;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .reported {
+    fill: $opentable-red;
+    font-size: 1.2rem;
+    position: absolute;
+    top: 608px;
+    right: 428px;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      svg {
+        transform: scale(1.1);
+      }
     }
   }
 }

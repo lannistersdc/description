@@ -6,14 +6,13 @@ import styles from '../scss/main.scss';
 
 const icons = require('../icons/icons');
 
-
-const HeroImage = ({ restaurantSaved, toggleSave }) => {
+const HeroImage = ({ restaurantSaved, toggleSave, restaurantPhoto }) => {
   // conditionally render to when clicked the button changes from save this restauran to restaurant saved
   const bookmarked = (
-    <div role="button" tabIndex="0" className={styles.bookmarking} onClick={toggleSave}>
+    <div role="button" tabIndex="0" className={styles.bookmarking}>
       {restaurantSaved ? (
         <div>
-          <button type="button" className={styles.favorited}>
+          <button type="button" className={styles.favorited} onClick={toggleSave}>
             <span>
               <svg>
                 <path d={icons.favoritedBookmark} />
@@ -24,7 +23,7 @@ const HeroImage = ({ restaurantSaved, toggleSave }) => {
         </div>
       ) : (
         <div>
-          <button type="button" className={styles.save}>
+          <button type="button" className={styles.save} onClick={toggleSave}>
             <span>
               <svg>
                 <path d={icons.bookmark} />
@@ -39,9 +38,7 @@ const HeroImage = ({ restaurantSaved, toggleSave }) => {
 
   return (
     <div className={styles.heroImage}>
-      <div className={styles.backgroundImage}>
-        <img src="#" alt="" />
-      </div>
+      <img className={styles.backgroundImage} src={restaurantPhoto} alt="#" />
       {bookmarked}
     </div>
   );
@@ -50,11 +47,13 @@ const HeroImage = ({ restaurantSaved, toggleSave }) => {
 HeroImage.propTypes = {
   restaurantSaved: PropTypes.bool,
   toggleSave: PropTypes.func,
+  restaurantPhoto: PropTypes.string,
 };
 
 HeroImage.defaultProps = {
   restaurantSaved: false,
   toggleSave: () => {},
+  restaurantPhoto: '',
 };
 
 export default HeroImage;
