@@ -17,7 +17,7 @@ const Gallery = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, to
     );
   }
   return (
-    <div className={styles.photos}>
+    <div id="photos-gallery" className={styles.photos}>
       <div className={styles.picHeading}>
         <h3>25 Photos</h3>
       </div>

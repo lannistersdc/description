@@ -8,6 +8,7 @@
 import React from 'react';
 import axios from 'axios';
 import styles from '../scss/main.scss';
+import NavBar from './NavBar';
 import HeroImage from './HeroImage';
 import Title from './Title';
 import Info from './Info';
@@ -32,7 +33,7 @@ class App extends React.Component {
       expandedDescription: false,
       restaurantSaved: false,
       currentImageIndex: '',
-      currentImage: 0,
+      currentImage: 1,
       photoReported: false,
       exitGallery: false,
       startCarousel: false,
@@ -40,8 +41,8 @@ class App extends React.Component {
     this.getOneRestaurant = this.getOneRestaurant.bind(this);
     this.toggleDescription = this.toggleDescription.bind(this);
     this.toggleSave = this.toggleSave.bind(this);
-    // this.previousSlide = this.previousSlide.bind(this);
-    // this.nextSlide = this.nextSlide.bind(this);
+    this.previousSlide = this.previousSlide.bind(this);
+    this.nextSlide = this.nextSlide.bind(this);
     this.toggleFlag = this.toggleFlag.bind(this);
     this.toggleExit = this.toggleExit.bind(this);
     this.toggleCarousel = this.toggleCarousel.bind(this);
@@ -112,38 +113,42 @@ class App extends React.Component {
     });
   }
 
-  // previousSlide() {
-  //   const { restaurantPhotos, currentImage } = this.state;
-  //   const lastIndex = restaurantPhotos.length - 1;
-  //   const shouldResetIndex = currentImage === 0;
-  //   const index = shouldResetIndex ? lastIndex : currentImage - 1;
-  //   this.setState({
-  //     currentImage: index,
-  //   }, () => console.log(this.state));
-  // }
+  previousSlide() {
+    const { restaurantPhotos, currentImage } = this.state;
+    const lastIndex = restaurantPhotos.length - 1;
+    const shouldResetIndex = currentImage === 1;
+    const index = shouldResetIndex ? lastIndex : currentImage - 1;
+    this.setState({
+      currentImage: index,
+    }, () => console.log(this.state));
+  }
 
-  // nextSlide() {
-  //   const { restaurantPhotos } = this.state;
-  //   const lastIndex = restaurantPhotos.length - 1;
-  //   const { currentImage } = this.state;
-  //   const shouldResetIndex = currentImage === lastIndex;
-  //   const index = shouldResetIndex ? 0 : currentImage + 1;
-  //   this.setState({
-  //     currentImage: index,
-  //   });
-  // }
+  nextSlide() {
+    const { restaurantPhotos, currentImage } = this.state;
+    const lastIndex = restaurantPhotos.length - 1;
+    const shouldResetIndex = currentImage === lastIndex;
+    const index = shouldResetIndex ? 0 : currentImage + 1;
+    this.setState({
+      currentImage: index,
+    }, () => console.log(this.state));
+  }
 
   render() {
     const { restaurantName, restaurantRating, restaurantReviews, restaurantPrice, restaurantCuisine, restaurantDescription, restaurantTags, restaurantPhotos, expandedDescription, restaurantSaved, currentImageIndex, photoReported, startCarousel, exitGallery } = this.state;
     return (
-      <div className={styles.overviewSection}>
-        <HeroImage restaurantSaved={restaurantSaved} toggleSave={this.toggleSave} restaurantPhoto={restaurantPhotos[0]} />
-        <Title restaurantName={restaurantName} />
-        <Info restaurantRating={restaurantRating} restaurantReviews={restaurantReviews} restaurantPrice={restaurantPrice} restaurantCuisine={restaurantCuisine} />
-        <TopTags restaurantTags={restaurantTags} />
-        <Description restaurantDescription={restaurantDescription} expandedDescription={expandedDescription} toggleDescription={this.toggleDescription} />
-        <PrivateDining />
-        <Gallery restaurantPhotos={restaurantPhotos} previousSlide={this.previousSlide} nextSlide={this.nextSlide} photoReported={photoReported} toggleFlag={this.toggleFlag} toggleExit={this.toggleExit} toggleCarousel={this.toggleCarousel} startCarousel={startCarousel} exitGallery={exitGallery} />
+      <div className={styles.overallApp}>
+        <div className={styles.topHeaderImage}>
+          <HeroImage restaurantSaved={restaurantSaved} toggleSave={this.toggleSave} restaurantPhoto={restaurantPhotos[0]} toggleCarousel={this.toggleCarousel} />
+        </div>
+        <div className={styles.overviewSection}>
+          <NavBar />
+          <Title restaurantName={restaurantName} />
+          <Info restaurantRating={restaurantRating} restaurantReviews={restaurantReviews} restaurantPrice={restaurantPrice} restaurantCuisine={restaurantCuisine} />
+          <TopTags restaurantTags={restaurantTags} />
+          <Description restaurantDescription={restaurantDescription} expandedDescription={expandedDescription} toggleDescription={this.toggleDescription} />
+          <PrivateDining />
+          <Gallery restaurantPhotos={restaurantPhotos} previousSlide={this.previousSlide} nextSlide={this.nextSlide} photoReported={photoReported} toggleFlag={this.toggleFlag} toggleExit={this.toggleExit} toggleCarousel={this.toggleCarousel} startCarousel={startCarousel} exitGallery={exitGallery} />
+        </div>
       </div>
     );
   }

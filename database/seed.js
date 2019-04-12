@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
 const mongoose = require('mongoose');
 
-const Opentable = require('./index.js');
+const Description = require('./index.js');
 const restaurantData = require('./data.json');
 
 const seedFunction = () => {
-  Opentable.insertMany(restaurantData)
+  Description.insertMany(restaurantData)
     .then(() => {
       console.log('database seeded');
       mongoose.connection.close();

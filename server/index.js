@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
 const express = require('express');
 const path = require('path');
@@ -16,5 +17,4 @@ server.use(express.static(path.join(__dirname, '../public')));
 
 server.use('/api', router);
 
-// eslint-disable-next-line no-console
 server.listen(port, () => console.log(`Connected on port ${port}`));

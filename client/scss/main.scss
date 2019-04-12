@@ -7,17 +7,19 @@ $icon: #2D333F;
 body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 16px;
+  margin: 0;
 }
 
 .overviewSection {
-  padding: 2rem 1rem 4rem;
-  width: 640px;
+  padding: 5px 0 64px 240px;
+  width: 650px;
+  margin-top: calc(-1*57px);
 }
 
 h1 {
   font-size: 3em;
   font-weight: 700;
-  margin-top: 0;
+  margin-top: 1.2rem;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid $grey;
@@ -44,20 +46,98 @@ svg {
   }
 }
 
+.footer {
+  max-width: inherit;
+  width: inherit;
+  font-size: 14.8px;
+  font-weight: 500;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 48px;
+  border-radius: 2px 2px 0 0;
+  margin: 0 1rem 0 0;
+  -webkit-font-smoothing: antialiased;
+  position: sticky;
+  top: 0;
+  align-items: center;
+  ul {
+    height: 48px;
+    width: 650px;
+    list-style: none;
+    background-color: #fff;
+    border-radius: 2px 2px 0 0;
+    padding: 0 .5rem;
+    padding-top: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+  }
+  ul::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    left: 0;
+    border-bottom: 1px solid #d8d9db;
+  }
+  ul li {
+    display: inline-block;
+    list-style-type: none;
+    vertical-align: middle;
+    padding: 10px;
+    margin-right: 0.5rem;
+  }
+  ul li:hover {
+    content: "";
+    position: static;
+    right: .5rem;
+    bottom: 0px;
+    left: .5rem;
+    border-bottom: 2px solid #da3743;
+  }
+  ul li:focus {
+    content: "";
+    position: static;
+    right: .5rem;
+    bottom: 0px;
+    left: .5rem;
+    border-bottom: 2px solid #da3743;
+  }
+  a:link {
+    color: #2d333f;
+    background: #fff;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #da3743;
+    background: #fff;
+  }
+  a:focus {
+    color: #da3743;
+    background: #fff;
+  }
+  a:active {
+    color: #da3743;
+    background: #fff;
+  }
+}
+
 .heroImage {
   position: relative;
-  display: block;
-  margin: 0;
   padding: 0;
   .backgroundImage{
     width: 100%;
-    height: 230px;
-    overflow: hidden;
-    display: block;
-    background-size: cover;
-    background-position: center;
+    height: 320px;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
     cursor: pointer;
   }
   .bookmarking {
@@ -75,7 +155,7 @@ svg {
       align-items: center;
       justify-content: center;
       width: 12rem;
-      padding: 10px;
+      padding: 7.5px;
       background-color: #fff;
       border: 1px solid #d8d9db;
       fill: $opentable-red;
@@ -84,6 +164,9 @@ svg {
       font-weight: 500;
       font-size: 13px;
       cursor: pointer;
+      svg {
+        margin-top: 5px;
+      }
     }
     .save {
       display: flex;
@@ -256,7 +339,7 @@ svg {
     float: none;
     position: static;
     height: 49px;
-    width: 608px;
+    width: 650px;
     font-size: 24px;
     font-weight: 200;
     font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;

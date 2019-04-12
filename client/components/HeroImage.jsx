@@ -1,3 +1,5 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable max-len */
 import React from 'react';
@@ -6,7 +8,7 @@ import styles from '../scss/main.scss';
 
 const icons = require('../icons/icons');
 
-const HeroImage = ({ restaurantSaved, toggleSave, restaurantPhoto }) => {
+const HeroImage = ({ restaurantSaved, toggleSave, restaurantPhoto, toggleCarousel }) => {
   // conditionally render to when clicked the button changes from save this restauran to restaurant saved
   const bookmarked = (
     <div role="button" tabIndex="0" className={styles.bookmarking}>
@@ -38,7 +40,7 @@ const HeroImage = ({ restaurantSaved, toggleSave, restaurantPhoto }) => {
 
   return (
     <div className={styles.heroImage}>
-      <img className={styles.backgroundImage} src={restaurantPhoto} alt="#" />
+      <img className={styles.backgroundImage} src={restaurantPhoto} alt="#" onClick={toggleCarousel} />
       {bookmarked}
     </div>
   );

@@ -17,7 +17,7 @@ const Description = ({ restaurantDescription, expandedDescription, toggleDescrip
   );
 
   return (
-    <div className={styles.description}>
+    <div id="description-area" className={styles.description}>
       {/* Needs two different css attributes to show differently when the read more is clicked */}
       <div id={styles.descriptionText} className={expandedDescription ? styles.expandedP : styles.collapsedP}>
         {paragraphs}

@@ -4,7 +4,7 @@ mongoose.set('useCreateIndex', true);
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/opentable', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/description', { useNewUrlParser: true })
   // eslint-disable-next-line no-console
   .then(() => console.log('Connected to mongodb'));
 
