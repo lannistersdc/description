@@ -13,7 +13,7 @@ const Gallery = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, to
   const homePagePhotos = newPhotosArr.map((photo, index) => <img className={gridClassArr[index]} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
   if (startCarousel && !exitGallery) {
     return (
-      <Carousel remainingPictures={remainingPictures} previousSlide={previousSlide} nextSlide={nextSlide} photoReported={photoReported} toggleFlag={toggleFlag} toggleExit={toggleExit} />
+      <Carousel restaurantPhotos={restaurantPhotos} previousSlide={previousSlide} nextSlide={nextSlide} photoReported={photoReported} toggleFlag={toggleFlag} toggleExit={toggleExit} startCarousel={startCarousel} />
     );
   }
   return (

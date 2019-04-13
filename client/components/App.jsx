@@ -110,7 +110,7 @@ class App extends React.Component {
       startCarousel: !startCarousel,
       exitGallery: false,
       currentImageIndex: index,
-    });
+    }, () => console.log(this.state));
   }
 
   previousSlide() {
@@ -120,17 +120,17 @@ class App extends React.Component {
     const index = shouldResetIndex ? lastIndex : currentImage - 1;
     this.setState({
       currentImage: index,
-    }, () => console.log(this.state));
+    });
   }
 
   nextSlide() {
     const { restaurantPhotos, currentImage } = this.state;
     const lastIndex = restaurantPhotos.length - 1;
     const shouldResetIndex = currentImage === lastIndex;
-    const index = shouldResetIndex ? 0 : currentImage + 1;
+    const index = shouldResetIndex ? 1 : currentImage + 1;
     this.setState({
       currentImage: index,
-    }, () => console.log(this.state));
+    });
   }
 
   render() {
@@ -142,12 +142,14 @@ class App extends React.Component {
         </div>
         <div className={styles.overviewSection}>
           <NavBar />
-          <Title restaurantName={restaurantName} />
-          <Info restaurantRating={restaurantRating} restaurantReviews={restaurantReviews} restaurantPrice={restaurantPrice} restaurantCuisine={restaurantCuisine} />
-          <TopTags restaurantTags={restaurantTags} />
-          <Description restaurantDescription={restaurantDescription} expandedDescription={expandedDescription} toggleDescription={this.toggleDescription} />
-          <PrivateDining />
-          <Gallery restaurantPhotos={restaurantPhotos} previousSlide={this.previousSlide} nextSlide={this.nextSlide} photoReported={photoReported} toggleFlag={this.toggleFlag} toggleExit={this.toggleExit} toggleCarousel={this.toggleCarousel} startCarousel={startCarousel} exitGallery={exitGallery} />
+          <div className={styles.tracy}>
+            <Title restaurantName={restaurantName} />
+            <Info restaurantRating={restaurantRating} restaurantReviews={restaurantReviews} restaurantPrice={restaurantPrice} restaurantCuisine={restaurantCuisine} />
+            <TopTags restaurantTags={restaurantTags} />
+            <Description restaurantDescription={restaurantDescription} expandedDescription={expandedDescription} toggleDescription={this.toggleDescription} />
+            <PrivateDining />
+            <Gallery restaurantPhotos={restaurantPhotos} previousSlide={this.previousSlide} nextSlide={this.nextSlide} photoReported={photoReported} toggleFlag={this.toggleFlag} toggleExit={this.toggleExit} toggleCarousel={this.toggleCarousel} startCarousel={startCarousel} exitGallery={exitGallery} />
+          </div>
         </div>
       </div>
     );

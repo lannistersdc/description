@@ -11,9 +11,8 @@ body {
 }
 
 .overviewSection {
-  padding: 5px 0 64px 240px;
+  margin: -52px 0 0 240px;
   width: 650px;
-  margin-top: calc(-1*57px);
 }
 
 h1 {
@@ -46,6 +45,10 @@ svg {
   }
 }
 
+.tracy {
+  padding: 0 15px;
+}
+
 .footer {
   max-width: inherit;
   width: inherit;
@@ -76,12 +79,12 @@ svg {
     box-sizing: border-box;
     position: relative;
   }
-  ul::before {
+  ul::after {
     content: "";
     position: absolute;
-    right: 0;
+    right: 15px;
     bottom: 0px;
-    left: 0;
+    left: 15px;
     border-bottom: 1px solid #d8d9db;
   }
   ul li {

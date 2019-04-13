@@ -6,8 +6,8 @@ import styles from '../scss/main.scss';
 
 const icons = require('../icons/icons');
 
-const Carousel = ({ remainingPictures, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit }) => {
-  const carouselPhotos = remainingPictures.map(photo => <img className={styles.allCarouselPhotos} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
+const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit, startCarousel }) => {
+  const carouselPhotos = restaurantPhotos.map(photo => <img className={styles.allCarouselPhotos} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
   const reportFlag = (
     <div role="button" tabIndex="0" className={styles.bookmarking}>
       {photoReported ? (
@@ -51,25 +51,28 @@ const Carousel = ({ remainingPictures, previousSlide, nextSlide, photoReported, 
       </button>
       {reportFlag}
     </div>
+    //<img src={this.props.piclistorwhatever[this.state.index]} />
   );
 };
 
 Carousel.propTypes = {
-  remainingPictures: PropTypes.arrayOf(PropTypes.string),
+  restaurantPhotos: PropTypes.arrayOf(PropTypes.string),
   previousSlide: PropTypes.func,
   nextSlide: PropTypes.func,
   photoReported: PropTypes.bool,
   toggleFlag: PropTypes.func,
   toggleExit: PropTypes.func,
+  startCarousel: PropTypes.bool,
 };
 
 Carousel.defaultProps = {
-  remainingPictures: [],
+  restaurantPhotos: [],
   previousSlide: () => {},
   nextSlide: () => {},
   photoReported: false,
   toggleFlag: () => {},
   toggleExit: () => {},
+  startCarousel: false,
 };
 
 export default Carousel;
