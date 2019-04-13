@@ -20,6 +20,6 @@ const restaurantSchema = mongoose.Schema({
   restaurantPhotos: { type: [String] },
 });
 
-const Restaurant = mongoose.model('Restaurant', restaurantSchema);
+const Description = mongoose.model('description', restaurantSchema);
 
-module.exports = Restaurant;
+module.exports = Description;

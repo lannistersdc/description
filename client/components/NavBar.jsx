@@ -15,12 +15,12 @@ const Nav = () => (
         </a>
       </li>
       <li className="insiders">
-        <a className="insidersext" href="javascript:void(0)">
+        <a className="insidersext" href="#jeffs-insider">
           <span>Insiders</span>
         </a>
       </li>
       <li className="reviews">
-        <a className="reviewsText" href="javascript:void(0)">
+        <a className="reviewsText" href="#jeffs-reviews">
           <span>Review</span>
         </a>
       </li>
