@@ -13,7 +13,7 @@ body {
 }
 
 .overviewSection {
-  margin: -52px 0 0 304px;
+  margin: -50.51px 0 0 304px;
   width: 640px;
 }
 
@@ -61,7 +61,7 @@ svg {
   justify-content: space-between;
   height: 51px;
   border-radius: 2px 2px 0 0;
-  margin: 0 1rem 0 0;
+  // margin: 0 1rem 0 0;
   -webkit-font-smoothing: antialiased;
   position: sticky;
   top: 0;
@@ -102,7 +102,7 @@ svg {
     right: .5rem;
     bottom: 0px;
     left: .5rem;
-    border-bottom: 2px solid #da3743;
+    border-bottom: 3px solid #da3743;
   }
   ul li:focus {
     content: "";
@@ -110,7 +110,7 @@ svg {
     right: .5rem;
     bottom: 0px;
     left: .5rem;
-    border-bottom: 2px solid #da3743;
+    border-bottom: 3px solid #da3743;
   }
   a:link {
     color: #2d333f;
