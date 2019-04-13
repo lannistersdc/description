@@ -4,12 +4,14 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const router = require('./router.js');
 
 const server = express();
 const port = process.env.PORT || 3003;
 
+server.use(cors());
 server.use(morgan('dev'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
