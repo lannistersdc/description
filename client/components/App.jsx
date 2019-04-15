@@ -55,7 +55,7 @@ class App extends React.Component {
   getOneRestaurant() {
     const id = Math.floor(Math.random() * 100) + 1;
     axios
-      .get(`http://localhost:3000/api/restaurant/${id}`)
+      .get(`http://localhost:3003/api/restaurant/${id}`)
       .then((response) => {
         const { restaurantId, restaurantName, restaurantRating, restaurantReviews, restaurantPrice, restaurantCuisine, restaurantDescription, restaurantTags, restaurantPhotos } = response.data;
         this.setState({
@@ -141,7 +141,7 @@ class App extends React.Component {
           <HeroImage restaurantSaved={restaurantSaved} toggleSave={this.toggleSave} restaurantPhoto={restaurantPhotos[0]} toggleCarousel={this.toggleCarousel} />
         </div>
         <div className={styles.overviewSection}>
-          <NavBar />
+          {/* <NavBar /> */}
           <div className={styles.tracy}>
             <Title restaurantName={restaurantName} />
             <Info restaurantRating={restaurantRating} restaurantReviews={restaurantReviews} restaurantPrice={restaurantPrice} restaurantCuisine={restaurantCuisine} />

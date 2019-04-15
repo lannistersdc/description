@@ -31,27 +31,28 @@ const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, t
   );
   return (
     <div className={styles.carousel}>
-      {carouselPhotos}
-      <div>
-        <button type="button" className={styles.left} onClick={previousSlide}>
+      <div className={styles.slider} style={{ transform: `translateX(${carouselPhotos.length}px)`, transition: 'transform ease-out 0.45s' }}>
+        {carouselPhotos}
+        <div>
+          <button type="button" className={styles.left} onClick={previousSlide}>
+            <svg>
+              <path d={icons.left_arrow} />
+            </svg>
+          </button>
+          <button type="button" className={styles.right} onClick={nextSlide}>
+            <svg>
+              <path d={icons.right_arrow} />
+            </svg>
+          </button>
+        </div>
+        <button type="button" className={styles.exit} onClick={toggleExit}>
           <svg>
-            <path d={icons.left_arrow} />
+            <path d={icons.cancel} />
           </svg>
         </button>
-        <button type="button" className={styles.right} onClick={nextSlide}>
-          <svg>
-            <path d={icons.right_arrow} />
-          </svg>
-        </button>
+        {reportFlag}
       </div>
-      <button type="button" className={styles.exit} onClick={toggleExit}>
-        <svg>
-          <path d={icons.cancel} />
-        </svg>
-      </button>
-      {reportFlag}
     </div>
-    //<img src={this.props.piclistorwhatever[this.state.index]} />
   );
 };
 

@@ -49,6 +49,7 @@ svg {
 
 .tracy {
   padding: 0 15px;
+  padding-top: 50px;
 }
 
 .footer {
@@ -528,7 +529,9 @@ svg {
   white-space: nowrap;
   background-size: cover;
   background-position: center;
+  overflow-x: hidden;
   .allCarouselPhotos {
+    width: 525px;
     position: fixed;
     top: 10%;
     left: 537.5px;
