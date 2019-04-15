@@ -531,18 +531,15 @@ svg {
   background-position: center;
   overflow-x: hidden;
   .allCarouselPhotos {
-    width: 525px;
     position: fixed;
     top: 10%;
-    left: 537.5px;
-    right: 537.5px;
     width: 525px;
     white-space: nowrap;
     background-size: cover;
     background-position: center;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 470px;
+    margin-right: 470px;
     align-items: center;
   }
   .exit {
@@ -570,7 +567,7 @@ svg {
     font-size: 1.2rem;
     position: absolute;
     top: 310px;
-    left: 480px;
+    left: 430px;
     height: 40px;
     width: 40px;
     margin: 0;
@@ -590,7 +587,7 @@ svg {
     font-size: 1.2rem;
     position: absolute;
     top: 310px;
-    right: 480px;
+    right: 395px;
     height: 40px;
     width: 40px;
     margin: 0;
@@ -610,7 +607,7 @@ svg {
     font-size: 1.2rem;
     position: absolute;
     top: 608px;
-    right: 530px;
+    right: 430px;
     height: 40px;
     width: 40px;
     margin: 0;

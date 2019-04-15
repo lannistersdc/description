@@ -6,7 +6,7 @@ import styles from '../scss/main.scss';
 
 const icons = require('../icons/icons');
 
-const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit, startCarousel }) => {
+const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit }) => {
   const carouselPhotos = restaurantPhotos.map(photo => <img className={styles.allCarouselPhotos} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
   const reportFlag = (
     <div role="button" tabIndex="0" className={styles.bookmarking}>
@@ -31,27 +31,25 @@ const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, t
   );
   return (
     <div className={styles.carousel}>
-      <div className={styles.slider} style={{ transform: `translateX(${carouselPhotos.length}px)`, transition: 'transform ease-out 0.45s' }}>
-        {carouselPhotos}
-        <div>
-          <button type="button" className={styles.left} onClick={previousSlide}>
-            <svg>
-              <path d={icons.left_arrow} />
-            </svg>
-          </button>
-          <button type="button" className={styles.right} onClick={nextSlide}>
-            <svg>
-              <path d={icons.right_arrow} />
-            </svg>
-          </button>
-        </div>
-        <button type="button" className={styles.exit} onClick={toggleExit}>
+      {carouselPhotos}
+      <div>
+        <button type="button" className={styles.left} onClick={previousSlide}>
           <svg>
-            <path d={icons.cancel} />
+            <path d={icons.left_arrow} />
           </svg>
         </button>
-        {reportFlag}
+        <button type="button" className={styles.right} onClick={nextSlide}>
+          <svg>
+            <path d={icons.right_arrow} />
+          </svg>
+        </button>
       </div>
+      <button type="button" className={styles.exit} onClick={toggleExit}>
+        <svg>
+          <path d={icons.cancel} />
+        </svg>
+      </button>
+      {reportFlag}
     </div>
   );
 };
@@ -63,7 +61,6 @@ Carousel.propTypes = {
   photoReported: PropTypes.bool,
   toggleFlag: PropTypes.func,
   toggleExit: PropTypes.func,
-  startCarousel: PropTypes.bool,
 };
 
 Carousel.defaultProps = {
@@ -73,7 +70,6 @@ Carousel.defaultProps = {
   photoReported: false,
   toggleFlag: () => {},
   toggleExit: () => {},
-  startCarousel: false,
 };
 
 export default Carousel;
