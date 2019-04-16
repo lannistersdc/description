@@ -9,7 +9,7 @@ import styles from '../scss/main.scss';
 const icons = require('../icons/icons');
 
 const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit, currentPicture, currentImageIndex }) => {
-  const carouselPhotos = restaurantPhotos.map(photo => <img onClick={currentPicture} className={styles.allCarouselPhotos} id={currentImageIndex} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
+  // const carouselPhotos = restaurantPhotos.map(photo => <img onClick={currentPicture} className={styles.allCarouselPhotos} id={currentImageIndex} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
   const reportFlag = (
     <div role="button" tabIndex="0" className={styles.bookmarking}>
       {photoReported ? (
@@ -33,7 +33,7 @@ const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, t
   );
   return (
     <div className={styles.carousel}>
-      {carouselPhotos}
+      <img className={styles.allCarouselPhotos} src={restaurantPhotos[3]} alt="" />
       <div>
         <button type="button" className={styles.left} onClick={previousSlide}>
           <svg>
