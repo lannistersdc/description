@@ -16,6 +16,7 @@ import TopTags from './TopTags';
 import Description from './Description';
 import PrivateDining from './PrivateDining';
 import Gallery from './Gallery';
+import DemoCarousel from './Carousel2';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends React.Component {
     this.toggleFlag = this.toggleFlag.bind(this);
     this.toggleExit = this.toggleExit.bind(this);
     this.toggleCarousel = this.toggleCarousel.bind(this);
+    this.currentPicture = this.currentPicture.bind(this);
   }
 
   componentDidMount() {
@@ -113,6 +115,14 @@ class App extends React.Component {
     }, () => console.log(this.state));
   }
 
+  currentPicture(e) {
+    e.preventDefault();
+    const photo = e.target.id;
+    this.setState({
+      currentImageIndex: photo,
+    });
+  }
+
   previousSlide() {
     const { restaurantPhotos, currentImage } = this.state;
     const lastIndex = restaurantPhotos.length - 1;
@@ -120,7 +130,7 @@ class App extends React.Component {
     const index = shouldResetIndex ? lastIndex : currentImage - 1;
     this.setState({
       currentImage: index,
-    });
+    }, () => console.log(this.state));
   }
 
   nextSlide() {
@@ -130,7 +140,7 @@ class App extends React.Component {
     const index = shouldResetIndex ? 1 : currentImage + 1;
     this.setState({
       currentImage: index,
-    });
+    }, () => console.log(this.state));
   }
 
   render() {
@@ -148,7 +158,8 @@ class App extends React.Component {
             <TopTags restaurantTags={restaurantTags} />
             <Description restaurantDescription={restaurantDescription} expandedDescription={expandedDescription} toggleDescription={this.toggleDescription} />
             <PrivateDining />
-            <Gallery restaurantPhotos={restaurantPhotos} previousSlide={this.previousSlide} nextSlide={this.nextSlide} photoReported={photoReported} toggleFlag={this.toggleFlag} toggleExit={this.toggleExit} toggleCarousel={this.toggleCarousel} startCarousel={startCarousel} exitGallery={exitGallery} />
+            <Gallery restaurantPhotos={restaurantPhotos} previousSlide={this.previousSlide} nextSlide={this.nextSlide} photoReported={photoReported} toggleFlag={this.toggleFlag} toggleExit={this.toggleExit} toggleCarousel={this.toggleCarousel} startCarousel={startCarousel} exitGallery={exitGallery} currentPicture={this.currentPicture} currentImageIndex={currentImageIndex} />
+            {/* <DemoCarousel restaurantPhotos={restaurantPhotos} /> */}
           </div>
         </div>
       </div>

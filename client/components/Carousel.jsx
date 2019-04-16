@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable max-len */
 /* eslint-disable object-curly-newline */
 import React from 'react';
@@ -6,8 +8,8 @@ import styles from '../scss/main.scss';
 
 const icons = require('../icons/icons');
 
-const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit }) => {
-  const carouselPhotos = restaurantPhotos.map(photo => <img className={styles.allCarouselPhotos} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
+const Carousel = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit, currentPicture, currentImageIndex }) => {
+  const carouselPhotos = restaurantPhotos.map(photo => <img onClick={currentPicture} className={styles.allCarouselPhotos} id={currentImageIndex} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
   const reportFlag = (
     <div role="button" tabIndex="0" className={styles.bookmarking}>
       {photoReported ? (
@@ -61,6 +63,8 @@ Carousel.propTypes = {
   photoReported: PropTypes.bool,
   toggleFlag: PropTypes.func,
   toggleExit: PropTypes.func,
+  currentImageIndex: PropTypes.string,
+  currentPicture: PropTypes.func,
 };
 
 Carousel.defaultProps = {
@@ -70,6 +74,8 @@ Carousel.defaultProps = {
   photoReported: false,
   toggleFlag: () => {},
   toggleExit: () => {},
+  currentImageIndex: '',
+  currentPicture: () => {},
 };
 
 export default Carousel;

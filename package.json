@@ -26,7 +26,8 @@
     "mongoose": "^5.4.20",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-responsive-carousel": "^3.1.47"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

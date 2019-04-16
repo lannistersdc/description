@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 import styles from '../scss/main.scss';
 import Carousel from './Carousel';
 
-const Gallery = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit, startCarousel, toggleCarousel, exitGallery }) => {
+const Gallery = ({ restaurantPhotos, previousSlide, nextSlide, photoReported, toggleFlag, toggleExit, startCarousel, toggleCarousel, exitGallery, currentImageIndex, currentPicture }) => {
   const newPhotosArr = restaurantPhotos.slice(1, 10);
   const remainingPictures = restaurantPhotos.slice(10);
   const gridClassArr = [styles.gridIndex0, styles.gridIndex1, styles.gridIndex2, styles.gridIndex3, styles.gridIndex4, styles.gridIndex5, styles.gridIndex6, styles.gridIndex7, styles.gridIndex8];
   const homePagePhotos = newPhotosArr.map((photo, index) => <img className={gridClassArr[index]} key={Math.floor(Math.random() * 99999)} src={photo} alt="" />);
   if (startCarousel && !exitGallery) {
     return (
-      <Carousel restaurantPhotos={restaurantPhotos} previousSlide={previousSlide} nextSlide={nextSlide} photoReported={photoReported} toggleFlag={toggleFlag} toggleExit={toggleExit} startCarousel={startCarousel} />
+      <Carousel currentImageIndex={currentImageIndex} restaurantPhotos={restaurantPhotos} previousSlide={previousSlide} nextSlide={nextSlide} photoReported={photoReported} toggleFlag={toggleFlag} toggleExit={toggleExit} startCarousel={startCarousel} />
     );
   }
   return (
@@ -39,6 +39,8 @@ Gallery.propTypes = {
   startCarousel: PropTypes.bool,
   toggleCarousel: PropTypes.func,
   exitGallery: PropTypes.bool,
+  currentImageIndex: PropTypes.string,
+  currentPicture: PropTypes.func,
 };
 
 Gallery.defaultProps = {
@@ -51,6 +53,8 @@ Gallery.defaultProps = {
   startCarousel: false,
   toggleCarousel: () => {},
   exitGallery: false,
+  currentImageIndex: '',
+  currentPicture: () => {},
 };
 
 export default Gallery;
