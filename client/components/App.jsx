@@ -16,7 +16,7 @@ import TopTags from './TopTags';
 import Description from './Description';
 import PrivateDining from './PrivateDining';
 import Gallery from './Gallery';
-import DemoCarousel from './Carousel2';
+// import DemoCarousel from './Carousel2';
 
 class App extends React.Component {
   constructor(props) {
