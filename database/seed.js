@@ -1,9 +1,13 @@
 /* eslint-disable no-console */
 // const mongoose = require('mongoose');
 const Faker = require('faker');
-
+const fs = require('fs');
 // const Description = require('./index.js');
 // const restaurantData = require('./data.json');
+
+// const reader = fs.createReadStream();
+const writer = fs.createWriteStream("database/data.csv");
+
 const price = ["$30 Under", "$31 to $50", "$50 and over"];
 const tags = ["Authentic", "Bar Seating", "Book the Bar", "Charming", "Comfort Food", "Couples", "Cozy", "Craft Beer Selection",
               "Creative Cuisine", "Dancing", "Earn Bonus Points", "Eater's Essential Restaurants", "Families", "Family Style", 
@@ -18,10 +22,44 @@ const tags = ["Authentic", "Bar Seating", "Book the Bar", "Charming", "Comfort F
               "Wood Oven", "Worth the Drive"];
 const count1 = 1000;
 const count2 = 10000;
-const generateData = () => {
-  for (let i = 0; i < count1; i++) {
-    let data = [];
-    for (let j = 0; j < count2; j++) {
+// const generateData = () => {
+//   for (let i = 0; i < count1; i++) {
+//     let data = [];
+//     for (let j = 0; j < count2; j++) {
+//       let restaurantTags = [
+//         tags[Math.floor(Math.random() * tags.length)],
+//         tags[Math.floor(Math.random() * tags.length)],
+//         tags[Math.floor(Math.random() * tags.length)],
+//       ]
+//       let restaurantPhotos = [];
+//       for (let k = 0; k < (20 + Math.floor(Math.random() * 80)); k++) {
+//         restaurantPhotos.push(Faker.image.food())
+//       }
+//       let restaurant = {
+//         restaurantId: i*count2 + j,
+//         restaurantName: Faker.company.companyName(),
+//         restaurantRating: Math.floor(Math.random() * 50) / 10,
+//         restaurantReviews: Math.floor(Math.random() * 5000),
+//         restaurantPrice: price[Math.floor(Math.random() * 3)],
+//         restaurantCuisine: Faker.address.country(),
+//         restaurantDescription: Faker.lorem.paragraph(),
+//         restaurantTags,
+//         restaurantPhotos
+
+//       }
+//       data.push(restaurant);
+//     }
+    
+//   }
+// }
+
+function generateData(writer, callback) {
+  let i = 10000000;
+  let counter = 0;
+  writeToStream();
+  function writeToStream() {
+    let ok = true;
+    do {
       let restaurantTags = [
         tags[Math.floor(Math.random() * tags.length)],
         tags[Math.floor(Math.random() * tags.length)],
@@ -32,7 +70,7 @@ const generateData = () => {
         restaurantPhotos.push(Faker.image.food())
       }
       let restaurant = {
-        restaurantId: i*count2 + j,
+        restaurantId: counter,
         restaurantName: Faker.company.companyName(),
         restaurantRating: Math.floor(Math.random() * 50) / 10,
         restaurantReviews: Math.floor(Math.random() * 5000),
@@ -41,11 +79,25 @@ const generateData = () => {
         restaurantDescription: Faker.lorem.paragraph(),
         restaurantTags,
         restaurantPhotos
-
+  
       }
-      data.push(restaurant);
+      data = JSON.stringify(restaurant);
+      i--;
+      counter++;
+      if (i === 0) {
+        // last time!
+        writer.write(data, callback);
+      } else {
+        // See if we should continue, or wait.
+        // Don't pass the callback, because we're not done yet.
+        ok = writer.write(data + ',');
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      // had to stop early!
+      // write some more once it drains
+      writer.once('drain', writeToStream);
     }
-    
   }
 }
 
@@ -58,8 +110,10 @@ const generateData = () => {
 //     .catch(err => console.error(err));
 // };
 const start = new Date()
-generateData();
-const mid = new Date()
-console.log("Generation time: " + (mid - start))
+generateData(writer, () => {
+  const mid = new Date()
+  console.log("Generation time: " + (mid - start))
+});
+
 // console.log(data)
 // seedFunction();
