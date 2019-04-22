@@ -6,7 +6,7 @@ const fs = require('fs');
 // const restaurantData = require('./data.json');
 
 // const reader = fs.createReadStream();
-const writer = fs.createWriteStream("database/data.csv");
+const writer = fs.createWriteStream("database/data.json");
 
 const price = ["$30 Under", "$31 to $50", "$50 and over"];
 const tags = ["Authentic", "Bar Seating", "Book the Bar", "Charming", "Comfort Food", "Couples", "Cozy", "Craft Beer Selection",
@@ -56,6 +56,7 @@ const count2 = 10000;
 function generateData(writer, callback) {
   let i = 10000000;
   let counter = 0;
+  writer.write('[')
   writeToStream();
   function writeToStream() {
     let ok = true;
@@ -86,7 +87,7 @@ function generateData(writer, callback) {
       counter++;
       if (i === 0) {
         // last time!
-        writer.write(data, callback);
+        writer.write(data + ']', callback);
       } else {
         // See if we should continue, or wait.
         // Don't pass the callback, because we're not done yet.
