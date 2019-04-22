@@ -25,3 +25,6 @@ build/
 dist/
 public/
 
+database/data.csv
+database/data.json
+database/psql/psqlConfig.js
