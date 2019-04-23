@@ -1,9 +1,9 @@
-const Opentable = require('../database/index.js');
+const dbHelpers = require('../database/mongo/dbHelpers.js');
 
 const controller = {
   get: (req, res) => {
     const { restaurantId } = req.params;
-    Opentable.findOne({ restaurantId })
+    dbHelpers.getOne(restaurantId)
       .then((docs) => {
         res.status(200).send(docs);
       })
@@ -11,7 +11,7 @@ const controller = {
   },
   post: (req, res) => {
     const { restaurant } = req.body;
-    Opentable.create(restaurant)
+      dbHelpers.postOne(restaurant)
       .then((docs) => {
         res.status(201).send(docs);
       })
@@ -20,7 +20,7 @@ const controller = {
   put: (req, res) => {
     const { restaurantId } = req.params;
     const { restaurant } = req.body;
-    Opentable.findOneAndUpdate({ restaurantId }, restaurant, {new: true})
+    dbHelpers.updateOne(restaurantId, restaurant)
       .then((docs) => {
         res.status(204).send(docs);
       })
@@ -28,7 +28,7 @@ const controller = {
   },
   delete: (req, res) => {
     const { restaurantId } = req.params;
-    Opentable.findOneAndDelete({ restaurantId })
+    dbHelpers.deleteOne(restaurantId)
       .then((docs) => {
         res.sendStatus(204);
       })
