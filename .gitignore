@@ -27,4 +27,4 @@ public/
 
 database/data.csv
 database/data.json
-database/psql/psqlConfig.js
+database/psql/config.js
