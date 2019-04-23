@@ -1,13 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.set('useCreateIndex', true);
-
-mongoose.Promise = global.Promise;
-
-mongoose.connect('mongodb://localhost/description', { useNewUrlParser: true })
-  // eslint-disable-next-line no-console
-  .then(() => console.log('Connected to mongodb'));
-
 const restaurantSchema = mongoose.Schema({
   restaurantId: { type: Number, unique: true },
   restaurantName: { type: String },
@@ -19,6 +11,10 @@ const restaurantSchema = mongoose.Schema({
   restaurantTags: { type: [String] },
   restaurantPhotos: { type: [String] },
 });
+
+// const tagSchema = mongoose.Schema({
+//   tagId: {}
+// })
 
 const Description = mongoose.model('description', restaurantSchema);
 
