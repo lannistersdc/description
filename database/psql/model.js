@@ -16,9 +16,36 @@ const DescriptionModel = db.define(
   }
 );
 
+const TagModel = db.define('Tag', {
+  tag: { type: Sequelize.STRING },
+  restaurantId: {
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'Descriptions', 
+      key: 'restaurantId' 
+    }
+  }
+})
+
+const PhotoModel = db.define('Photo', {
+  photo: { type: Sequelize.STRING },
+  restaurantId: {
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'Descriptions', 
+      key: 'restaurantId' 
+    }
+  }
+})
+
+
 db
   .sync()
   .then(() => { console.log('Synced!') })
   .catch(error => console.error(error));
 
-module.exports = DescriptionModel;
+module.exports = {
+  DescriptionModel,
+  TagModel,
+  PhotoModel
+};

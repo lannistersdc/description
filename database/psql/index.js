@@ -5,8 +5,6 @@ const db = new Sequelize('description', username, password, {
     dialect: 'postgres'
 })
 
-// console.log('hey')
-
 db
     .authenticate()
     .then(() => console.log('Connected!'))
