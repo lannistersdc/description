@@ -28,3 +28,6 @@ public/
 database/data.csv
 database/data.json
 database/psql/config.js
+database/descriptions.csv
+database/tags.csv
+database/photos.csv
