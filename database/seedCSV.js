@@ -22,6 +22,7 @@ const tags = ["Authentic", "Bar Seating", "Book the Bar", "Charming", "Comfort F
 function generateData(writer, mode, callback) {
   let i = 10;
   let counter = 0;
+  let tableCount = 0;
   switch(mode) {
     case 0:
       writer.write("restaurantId|restaurantName|restaurantRating|restaurantReviews|restaurantPrice|restaurantCuisine|restaurantDescription\n");
@@ -55,10 +56,12 @@ function generateData(writer, mode, callback) {
           row = [];
           for (let j = 0; j < 3; j++) {
             let restaurantTag = [
+              tableCount,
               tags[Math.floor(Math.random() * tags.length)],
               counter
             ];
             row.push(restaurantTag.join('|'));
+            tableCount++;
           }
           row = row.join('\n');
           break;
@@ -66,10 +69,12 @@ function generateData(writer, mode, callback) {
           row = [];
           for (let k = 0; k < (20 + Math.floor(Math.random() * 80)); k++) {
             let restaurantPhoto = [
+              tableCount,
               Faker.image.food(),
               counter
             ];
             row.push(restaurantPhoto.join('|'));
+            tableCount++;
           }
           row = row.join('\n');
           break;
