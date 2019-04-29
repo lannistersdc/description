@@ -20,7 +20,7 @@ const tags = ["Authentic", "Bar Seating", "Book the Bar", "Charming", "Comfort F
 
 
 function generateData(writer, mode, callback) {
-  let i = 10;
+  let i = 10000000;
   let counter = 0;
   let tableCount = 0;
   switch(mode) {
@@ -99,7 +99,9 @@ function generateData(writer, mode, callback) {
 }
 
 generateData(writeDesc, 0, () => {
+  console.log("Seeded descriptions.")
   generateData(writeTags, 1, () => {
+    console.log("Seeded tags.")
     generateData(writePhotos, 2, () => {
       console.log("Done seeding CSVs.");
     });
