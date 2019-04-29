@@ -76,7 +76,17 @@ module.exports = {
   },
 
   updateOne: (restaurantId, restaurant) => {
-    // return Description.findOneAndUpdate({ restaurantId }, restaurant, {new: true});
+    // let keys = Object.keys(restaurant);
+    // let vals = Object.values(restaurant);
+    // return pool.query(`SELECT * FROM "Descriptions" WHERE "restaurantId" = ${restaurantId} FOR UPDATE;`)
+    //   .then(() => {
+    //     let descKeys = '"restaurantId", "' + keys.slice(0,6).join('", "') + '"';
+    //     let descVals = restaurantId.toString() + "', '" + vals.slice(0,6).join("', '");
+    //     let desc = [restaurantId, ...vals.slice(0,6)];
+    //     let descQuery = format(`UPDATE "Descriptions" SET (${descKeys})`)
+    //     return pool.query()
+    //   })
+    
   },
 
   deleteOne: (restaurantId) => {
