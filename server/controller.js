@@ -10,7 +10,7 @@ const controller = {
       .catch(err => console.error(err));
   },
   post: (req, res) => {
-    const { restaurant } = req.body;
+    const restaurant = req.body;
       dbHelpers.postOne(restaurant)
       .then((docs) => {
         res.status(201).send(docs);
@@ -19,7 +19,7 @@ const controller = {
   },
   put: (req, res) => {
     const { restaurantId } = req.params;
-    const { restaurant } = req.body;
+    const restaurant = req.body;
     dbHelpers.updateOne(restaurantId, restaurant)
       .then((docs) => {
         res.status(204).send(docs);
