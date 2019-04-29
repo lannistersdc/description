@@ -6,7 +6,11 @@ module.exports = {
   },
 
   postOne: (restaurant) => {
-    return Description.create(restaurant);
+    return Description.findOne().sort('-restaurantId')
+      .then((item) => {
+        restaurant.restaurantId = item.restaurantId + 1;
+        return Description.create(restaurant);
+      })
   },
 
   updateOne: (restaurantId, restaurant) => {
