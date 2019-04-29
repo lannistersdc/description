@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+const db = require('../database/mongo/index.js');
 
 const router = require('./router.js');
 
