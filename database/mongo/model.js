@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = require('./index.js');
 
 const restaurantSchema = mongoose.Schema({
   restaurantId: { type: Number, unique: true },
@@ -11,10 +12,6 @@ const restaurantSchema = mongoose.Schema({
   restaurantTags: { type: [String] },
   restaurantPhotos: { type: [String] },
 });
-
-// const tagSchema = mongoose.Schema({
-//   tagId: {}
-// })
 
 const Description = mongoose.model('description', restaurantSchema);
 
