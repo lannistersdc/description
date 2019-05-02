@@ -1,0 +1,10 @@
+config:
+  target: 'http://localhost:3003'
+  phases:
+    - duration: 60
+      arrivalRate: 1
+scenarios:
+  - name: "GET Stress Test"
+    flow:
+      - get:
+          url: "/api/restaurant/{{$randomNumber(9000000,10000000)}}"
